@@ -1,6 +1,7 @@
 11/09/2012
 
-My class work for:
+We are starting OpenFrameworks in CCLab!
+It seems a good time to start loading to GitHub my class work for:
 
 Parsons MFA (Design and Technology)
 Fall 2012 semester
