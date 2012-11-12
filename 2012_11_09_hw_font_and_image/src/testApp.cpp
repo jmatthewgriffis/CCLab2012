@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	
-    ofBackground(0,255,0);
+    //ofBackground(0,255,0);
     
 	verdana14.loadFont("verdana.ttf", 36, true, true);
     
@@ -19,7 +19,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	
-	ofSetColor(255,0,0);
+	//ofSetColor(255,0,0);
 	
     verdana14.drawString("THIS IS MY TEXT\nIT'S NOT YOUR TEXT\nIT'S MY TEXT", 100, 100);
     
