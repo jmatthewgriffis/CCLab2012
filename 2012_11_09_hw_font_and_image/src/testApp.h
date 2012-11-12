@@ -21,6 +21,7 @@ public:
     void gotMessage(ofMessage msg);
     
     ofTrueTypeFont	verdana14;
+    ofImage swirls;
     
 };
 

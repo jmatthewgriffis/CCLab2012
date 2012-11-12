@@ -6,6 +6,8 @@ void testApp::setup(){
     ofBackground(0,255,0);
     
 	verdana14.loadFont("verdana.ttf", 36, true, true);
+    
+    swirls.loadImage("youmatter.jpg");
 	    
 }
 
@@ -20,6 +22,8 @@ void testApp::draw(){
 	ofSetColor(255,0,0);
 	
     verdana14.drawString("THIS IS MY TEXT\nIT'S NOT YOUR TEXT\nIT'S MY TEXT", 100, 100);
+    
+    swirls.draw(300, 300);
     
 }
 
