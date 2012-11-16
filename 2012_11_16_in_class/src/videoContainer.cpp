@@ -10,10 +10,13 @@
 
 //--------------------------------------------------------------
 
-void videoContainer::setup() {
+void videoContainer::setup(float x, float y) {
     
     video.loadMovie("kyle.mov");
     video.play();
+    
+    xPos = x;
+    yPos = y;
     
 }
 
@@ -25,6 +28,6 @@ void videoContainer::update() {
 
 void videoContainer::draw() {
     
-    video.draw(0,0);
+    video.draw(xPos,yPos);
     
 }

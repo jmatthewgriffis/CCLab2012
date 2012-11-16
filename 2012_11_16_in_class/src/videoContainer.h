@@ -15,11 +15,13 @@
 class videoContainer {
 public:
     
-    void setup();
+    void setup(float x, float y);
     void update();
     void draw();
     
     ofVideoPlayer video;
+    
+    float xPos, yPos;
 
 };
 

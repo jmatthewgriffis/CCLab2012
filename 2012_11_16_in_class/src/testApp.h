@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "videoContainer.h"
 
+#define NUM 6
+
 class testApp : public ofBaseApp{
 
 	public:
@@ -20,6 +22,9 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    videoContainer kyle;
+    //Don't need the following any more because we are using an array now.
+    //videoContainer kyle;
+    
+    videoContainer myVideo[NUM];
 		
 };

@@ -3,21 +3,29 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     
-    kyle.setup();
+    for (int i=0; i<NUM; i++) {
+        myVideo[i].setup(320*i, 0);
+    }
 
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     
-    kyle.update();
+    for (int i=0; i<NUM; i++) {
+        myVideo[i].update();
+    }
+    
 
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     
-    kyle.draw();
+    for (int i=0; i<NUM; i++) {
+        myVideo[i].draw();
+    }
+    
 
 }
 
