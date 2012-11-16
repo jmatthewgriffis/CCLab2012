@@ -19,9 +19,10 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    float size;
-    float color;
-    float inc;
+    int size;
+    int color;
+    int inc;
+    int inc2;
     float yPos;
     float yVel;
     float grav;

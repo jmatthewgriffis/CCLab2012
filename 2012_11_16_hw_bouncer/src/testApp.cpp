@@ -9,9 +9,10 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
     
-    size = 200; //Ball size.
+    size = 100; //Ball size.
     color = 128; //Ball color.
     inc = 25; //Increment by which the color changes.
+    inc2 = 10; //Increment by which the size changes.
     yPos = ofGetHeight()/2; //Ball yPos.
     yVel = 5; //Ball y-velocity.
     grav = .3; //Slow the bouncing!
@@ -23,6 +24,10 @@ void testApp::update(){
     
     yPos += yVel;
     yVel += grav;
+    
+    if (yVel > -grav && yVel < grav) {
+        yVel = 0;
+    }
     
     //Fun with bouncing:
     if (yPos + size >= ofGetHeight() || yPos - size <= 0) { //Ball hits the top or bottom.
@@ -46,6 +51,11 @@ void testApp::update(){
         }
     }
     
+    //Let's do the same thing with the ball size.
+    if (yVel == 0) {
+        size += inc2;
+    }
+    
 }
 
 //--------------------------------------------------------------
@@ -56,7 +66,7 @@ void testApp::draw(){
     ofSetColor(255); //Reset color.
     
     //Print for debugging with this:
-    cout<<"yVel is "<<yVel<<endl;
+    cout<<"yVel is "<<yVel<<" and size is "<<size<<endl;
     
 }
 
