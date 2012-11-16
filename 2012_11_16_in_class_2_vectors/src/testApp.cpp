@@ -13,11 +13,18 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     
+    //ofSetColor(0);
     ofBeginShape();
     
-    
+    for (int i=0; i<pts.size(); i++) {
+        
+        ofVertex(pts[i].x, pts[i].y);
+        
+    }
     
     ofEndShape();
+    
+    cout<<pts.size()<<endl; // Print the number of elements in the vector.
 
 }
 
