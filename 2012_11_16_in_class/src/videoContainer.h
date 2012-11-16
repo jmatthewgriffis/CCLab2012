@@ -17,11 +17,12 @@ public:
     
     void setup(float x, float y);
     void update();
-    void draw();
+    void draw(float x, float y, float w, float h);
     
     ofVideoPlayer video;
     
     float xPos, yPos;
+    float videoW, videoH;
 
 };
 

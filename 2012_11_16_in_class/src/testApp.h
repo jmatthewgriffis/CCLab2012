@@ -26,5 +26,7 @@ class testApp : public ofBaseApp{
     //videoContainer kyle;
     
     videoContainer myVideo[NUM];
+    
+    float increment;
 		
 };

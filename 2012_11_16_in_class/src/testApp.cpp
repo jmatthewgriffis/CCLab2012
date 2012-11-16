@@ -4,7 +4,10 @@
 void testApp::setup(){
     
     for (int i=0; i<NUM; i++) {
-        myVideo[i].setup(320*i, 0);
+        //myVideo[i].setup(myVideo[i].videoW*i, 0);
+        myVideo[i].setup(120*i, 0);
+        
+        increment = 0;
     }
 
 }
@@ -16,6 +19,7 @@ void testApp::update(){
         myVideo[i].update();
     }
     
+    increment += .1;
 
 }
 
@@ -23,7 +27,7 @@ void testApp::update(){
 void testApp::draw(){
     
     for (int i=0; i<NUM; i++) {
-        myVideo[i].draw();
+        myVideo[i].draw(myVideo[i].videoW * i, increment, myVideo[i].videoW, myVideo[i].videoH);
     }
     
 

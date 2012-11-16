@@ -18,6 +18,9 @@ void videoContainer::setup(float x, float y) {
     xPos = x;
     yPos = y;
     
+    videoW = video.getWidth() / 3;
+    videoH = video.getHeight() / 3;
+    
 }
 
 void videoContainer::update() {
@@ -26,8 +29,9 @@ void videoContainer::update() {
     
 }
 
-void videoContainer::draw() {
+void videoContainer::draw(float x, float y, float w, float h) {
     
-    video.draw(xPos,yPos);
+    //video.draw(xPos,yPos, videoW, videoH);
+    video.draw(x,y, w, h);
     
 }
