@@ -19,13 +19,16 @@ void testApp::draw(){
     
     for (int i=0; i<pts.size(); i++) {
         
-        ofVertex(pts[i].x, pts[i].y);
+        float inc;
+        ofVertex(pts[i].x, pts[i].y, pts[i].z+inc);
+        
+        inc-=10;
         
     }
     
     ofEndShape();
     
-    if (pts.size()>50) {
+    if (pts.size()>100) {
         pts.erase(pts.begin());
     }
     
