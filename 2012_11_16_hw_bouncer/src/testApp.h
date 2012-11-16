@@ -24,5 +24,6 @@ class testApp : public ofBaseApp{
     float inc;
     float yPos;
     float yVel;
+    float grav;
 		
 };
