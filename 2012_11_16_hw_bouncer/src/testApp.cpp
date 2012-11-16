@@ -9,11 +9,12 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
     
-    size = 150; //Ball size.
+    size = 200; //Ball size.
     color = 128; //Ball color.
     inc = 25; //Increment by which the color changes.
     inc2 = 25; //Increment by which the size changes.
     yPos = ofGetHeight()/2; //Ball yPos.
+    xPos = ofGetWidth()/2; //Ball xPos.
     yVel = 5; //Ball y-velocity.
     grav = .3; //Slow the bouncing!
     
@@ -22,8 +23,8 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
     
-    yPos += yVel;
-    yVel += grav;
+    //yPos += yVel;
+    //yVel += grav;
     
     //Fun with bouncing:
     if (yPos >= ofGetHeight() - size || yPos <= size) { //Ball hits the top or bottom.
@@ -67,8 +68,48 @@ void testApp::update(){
 void testApp::draw(){
     
     ofSetColor(color);
-    ofCircle(ofGetWidth()/2, yPos, size);
+    ofCircle(xPos, yPos, size);
     ofSetColor(255); //Reset color.
+    
+    //Make a creepy face if the ball is big enough! Everyone likes those, right?
+    //if (size >= 250) {
+    ofSetColor(255, 0, 0);
+    if (size <= 75) {
+        ofPushMatrix();
+        ofTranslate(0, 0);
+        ofScale(.25, .25);
+        ofBeginShape();
+        ofVertex(xPos - (size/1.5), yPos + (size/3));
+        ofVertex(xPos - (size/2), yPos + (size/2.5));
+        ofVertex(xPos - (size/4), yPos + (size/2));
+        ofVertex(xPos, yPos + (size/1.75));
+        ofVertex(xPos + (size/4), yPos + (size/2));
+        ofVertex(xPos + (size/2), yPos + (size/2.5));
+        ofVertex(xPos + (size/1.5), yPos + (size/3));
+        ofVertex(xPos - (size/4), yPos + (size/2.75));
+        ofVertex(xPos + (size/4), yPos + (size/2.75));
+        ofEndShape();
+        ofPopMatrix();
+    }
+    else {
+        ofCircle(xPos - (size/3), yPos - (size/3), 12, size/10); //Left eye.
+    ofCircle(xPos + (size/3), yPos - (size/3), 12, size/10); //Right eye.
+    }
+    
+    ofBeginShape();
+    ofVertex(xPos - (size/1.5), yPos + (size/3));
+    ofVertex(xPos - (size/2), yPos + (size/2.5));
+    ofVertex(xPos - (size/4), yPos + (size/2));
+    ofVertex(xPos, yPos + (size/1.75));
+    ofVertex(xPos + (size/4), yPos + (size/2));
+    ofVertex(xPos + (size/2), yPos + (size/2.5));
+    ofVertex(xPos + (size/1.5), yPos + (size/3));
+    ofVertex(xPos - (size/4), yPos + (size/2.75));
+    ofVertex(xPos + (size/4), yPos + (size/2.75));
+    ofEndShape();
+    
+    ofSetColor(255);
+    //}
     
     //Print for debugging with this:
     cout<<"yVel is "<<yVel<<" and size is "<<size<<endl;
