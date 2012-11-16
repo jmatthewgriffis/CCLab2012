@@ -9,7 +9,7 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
     
-    size = 80; //Ball size.
+    size = 170; //Ball size.
     color = 128; //Ball color.
     inc = 25; //Increment by which the color changes.
     inc2 = 25; //Increment by which the size changes.
@@ -74,22 +74,11 @@ void testApp::draw(){
     //Make a creepy face if the ball is big enough! Everyone likes those, right?
     //if (size >= 250) {
     ofSetColor(255, 0, 0);
-    if (size <= 75) {
-        ofPushMatrix();
-        ofTranslate(0, 0);
-        ofScale(.25, .25);
-        ofBeginShape();
-        ofVertex(xPos - (size/1.5), yPos + (size/3));
-        ofVertex(xPos - (size/2), yPos + (size/2.5));
-        ofVertex(xPos - (size/4), yPos + (size/2));
-        ofVertex(xPos, yPos + (size/1.75));
-        ofVertex(xPos + (size/4), yPos + (size/2));
-        ofVertex(xPos + (size/2), yPos + (size/2.5));
-        ofVertex(xPos + (size/1.5), yPos + (size/3));
-        ofVertex(xPos - (size/4), yPos + (size/2.75));
-        ofVertex(xPos + (size/4), yPos + (size/2.75));
-        ofEndShape();
-        ofPopMatrix();
+    if (size >= 175) {
+        //Left evil eye:
+        ofTriangle(xPos-size/2, yPos-size/3, xPos-size/3.5, yPos-size/4.25, xPos-size/4.25, yPos-size/3);
+        //Right evil eye:
+        
     }
     else {
         ofCircle(xPos - (size/3), yPos - (size/3), 12, size/10); //Left eye.
