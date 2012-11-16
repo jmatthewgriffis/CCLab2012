@@ -16,9 +16,9 @@ void testApp::setup(){
     yPos = ofGetHeight()/2; // Ball yPos.
     xPos = ofGetWidth()/2; // Ball xPos.
     yVel = 5; // Ball y-velocity.
-    xVel = 0; // Ball x-velocity.
+    xVel = 5; // Ball x-velocity.
     grav = .3; // Slow the vertical bouncing!
-    friction = .7; // Slow the sideways-bouncing!
+    friction = 0; // Slow the sideways-bouncing!
     fist.loadImage("fist.jpg");
     fist.resize(fist.width/3, fist.height/3);
     ofHideCursor(); // Hide the mouse because we're using an image instead.
@@ -29,13 +29,13 @@ void testApp::setup(){
 void testApp::update(){
     
     yPos += yVel;
-    yVel += grav;
     xPos += xVel;
+    yVel += grav;
     
     // Control sideways-motion:
-    if (xVel != 0) { // If there is any,
+    /*if (xVel != 0) { // If there is any,
         xVel *= friction; // slow it down.
-    }
+    }*/
     if (xVel > -.1 && xVel < .1) { // If xVel is very small,
         xVel = 0; // make it zero.
     }
@@ -83,6 +83,13 @@ void testApp::update(){
             evil = false;
         }
     }
+    
+    // It's time. Time for more collision detection. Oh yes.
+    if (xPos <= size + inc2 || xPos >= ofGetWidth() - (size - inc2)) {
+        xVel *= -1; // Bounce the other way if ball hits a wall.
+    }
+    
+    // Put collision detection here.
     
 }
 
