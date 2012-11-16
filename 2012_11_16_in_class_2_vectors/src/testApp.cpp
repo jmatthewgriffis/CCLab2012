@@ -13,7 +13,8 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     
-    //ofSetColor(0);
+    ofSetColor(0);
+    ofNoFill();
     ofBeginShape();
     
     for (int i=0; i<pts.size(); i++) {
@@ -24,7 +25,11 @@ void testApp::draw(){
     
     ofEndShape();
     
-    cout<<pts.size()<<endl; // Print the number of elements in the vector.
+    if (pts.size()>50) {
+        pts.erase(pts.begin());
+    }
+    
+    //cout<<pts.size()<<endl; // Print the number of elements in the vector.
 
 }
 
