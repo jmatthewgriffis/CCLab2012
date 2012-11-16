@@ -21,20 +21,22 @@ void testApp::setup(){
 void testApp::update(){
     yPos += yVel;
     
-    if (color >= 255 || color <= 0) {
+    /*if (color >= 255 || color <= 0) {
         inc *= -1;
-    }
+    }*/
     
     if (yPos + size >= ofGetHeight() || yPos - size <= 0) {
         yVel *= -1;
         
-        /*if (color + inc > 255) {
+        if (color + inc > 255) {
             color += 255-color;
+            inc *= -1;
         }
         else if (color + inc < 0) {
-            color += inc;
-        }*/
-        if (color + inc >! 255) { //&& color + inc <! 0) {
+            color -= color;
+            inc *= -1;
+        }
+        else if (color < 255 - inc && color > 0 + inc) {
             color += inc;
         }
     }
