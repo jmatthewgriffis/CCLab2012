@@ -26,7 +26,9 @@ void testApp::update(){
     
     //Fun with bouncing:
     if (yPos + size >= ofGetHeight() || yPos - size <= 0) { //Ball hits the top or bottom.
-        yVel *= -1; //Reverse direction.
+        yVel = (yVel - grav) * -1; //Reverse direction. Subtracing an increment of
+        //gravity at this moment counters the addition above and ensures the ball
+        //doesn't bounce ever higher.
         
         //This part was tougher than I expected. Every time the ball bounces it
         //gains or loses color until it hits the top or bottom respectively of the
