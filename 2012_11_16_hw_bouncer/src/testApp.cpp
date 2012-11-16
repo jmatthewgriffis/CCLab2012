@@ -9,10 +9,10 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
     
-    size = 100; //Ball size.
+    size = 150; //Ball size.
     color = 128; //Ball color.
     inc = 25; //Increment by which the color changes.
-    inc2 = 10; //Increment by which the size changes.
+    inc2 = 25; //Increment by which the size changes.
     yPos = ofGetHeight()/2; //Ball yPos.
     yVel = 5; //Ball y-velocity.
     grav = .3; //Slow the bouncing!
@@ -25,12 +25,8 @@ void testApp::update(){
     yPos += yVel;
     yVel += grav;
     
-    if (yVel > -grav && yVel < grav) {
-        yVel = 0;
-    }
-    
     //Fun with bouncing:
-    if (yPos + size >= ofGetHeight() || yPos - size <= 0) { //Ball hits the top or bottom.
+    if (yPos >= ofGetHeight() - size || yPos <= size) { //Ball hits the top or bottom.
         yVel = (yVel - grav) * -1; //Reverse direction. Subtracing an increment of
         //gravity at this moment counters the addition above and ensures the ball
         //doesn't bounce ever higher.
@@ -52,8 +48,17 @@ void testApp::update(){
     }
     
     //Let's do the same thing with the ball size.
+    //We do this first to make sure the yVel gets to the value we need:
+    if (yVel > -grav && yVel < grav) {
+        yVel = 0;
+    }
+    //Then we change the size at that value:
     if (yVel == 0) {
         size += inc2;
+    }
+    //Need to limit the size:
+    if ((size >= 325) || size <= 25) {
+        inc2 *= -1;
     }
     
 }
