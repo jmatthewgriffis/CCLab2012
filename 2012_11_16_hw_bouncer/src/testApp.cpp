@@ -16,10 +16,12 @@ void testApp::setup(){
     yPos = ofGetHeight()/2; // Ball yPos.
     xPos = ofGetWidth()/2; // Ball xPos.
     yVel = 5; // Ball y-velocity.
-    grav = .3; // Slow the bouncing!
+    xVel = 0; // Ball x-velocity.
+    grav = .3; // Slow the vertical bouncing!
+    friction = .7; // Slow the sideways-bouncing!
     fist.loadImage("fist.jpg");
     fist.resize(fist.width/3, fist.height/3);
-    ofHideCursor(); //Hide the mouse because we're using an image instead.
+    ofHideCursor(); // Hide the mouse because we're using an image instead.
     
 }
 
@@ -28,6 +30,15 @@ void testApp::update(){
     
     yPos += yVel;
     yVel += grav;
+    xPos += xVel;
+    
+    // Control sideways-motion:
+    if (xVel != 0) { // If there is any,
+        xVel *= friction; // slow it down.
+    }
+    if (xVel > -.1 && xVel < .1) { // If xVel is very small,
+        xVel = 0; // make it zero.
+    }
     
     // Fun with bouncing:
     if (yPos >= ofGetHeight() - size || yPos <= size) { // Ball hits the top or bottom.
@@ -114,7 +125,7 @@ void testApp::draw(){
     fist.draw(mouseX-fist.width/2, mouseY-fist.height/2);
     
     // Print for debugging with this:
-    cout<<"yVel is "<<yVel<<" and size is "<<size<<endl;
+    cout<<"xVel is "<<xVel<<endl;
     
 }
 

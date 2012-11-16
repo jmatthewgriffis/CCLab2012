@@ -26,7 +26,9 @@ class testApp : public ofBaseApp{
     float yPos;
     float xPos;
     float yVel;
+    float xVel;
     float grav;
+    float friction;
     Boolean evil;
     ofImage fist;
 		
