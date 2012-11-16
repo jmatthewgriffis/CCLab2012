@@ -19,28 +19,28 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
+    
     yPos += yVel;
     
-    /*if (color >= 255 || color <= 0) {
-        inc *= -1;
-    }*/
-    
-    if (yPos + size >= ofGetHeight() || yPos - size <= 0) {
-        yVel *= -1;
+    //Fun with bouncing:
+    if (yPos + size >= ofGetHeight() || yPos - size <= 0) { //Ball hits the top or bottom.
+        yVel *= -1; //Reverse direction.
         
+        //This part was tougher than I expected. Every time the ball bounces it
+        //gains or loses color until it hits the top or bottom respectively of the
+        //spectrum, at which point it flips from gaining to losing or vice-versa.
         if (color + inc > 255) {
             color += 255-color;
             inc *= -1;
         }
         else if (color + inc < 0) {
-            color -= color;
+            color = 0;
             inc *= -1;
         }
-        else if (color < 255 - inc && color > 0 + inc) {
+        else {
             color += inc;
         }
     }
-    
     
 }
 
@@ -51,7 +51,7 @@ void testApp::draw(){
     ofCircle(ofGetWidth()/2, yPos, size);
     ofSetColor(255); //Reset color.
     
-    cout<<"color is "<<color<<" and inc is "<<inc<<endl;
+    //cout<<"color is "<<color<<" and inc is "<<inc<<endl;
     
 }
 
