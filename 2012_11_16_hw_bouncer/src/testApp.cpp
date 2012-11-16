@@ -17,6 +17,9 @@ void testApp::setup(){
     xPos = ofGetWidth()/2; // Ball xPos.
     yVel = 5; // Ball y-velocity.
     grav = .3; // Slow the bouncing!
+    fist.loadImage("fist.jpg");
+    fist.resize(fist.width/3, fist.height/3);
+    ofHideCursor(); //Hide the mouse because we're using an image instead.
     
 }
 
@@ -106,7 +109,9 @@ void testApp::draw(){
     ofEndShape();
     
     ofSetColor(255); // Reset the color.
-    //}
+    
+    //Draw the image centered on the mouse cursor:
+    fist.draw(mouseX-fist.width/2, mouseY-fist.height/2);
     
     // Print for debugging with this:
     cout<<"yVel is "<<yVel<<" and size is "<<size<<endl;

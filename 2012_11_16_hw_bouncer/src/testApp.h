@@ -28,5 +28,6 @@ class testApp : public ofBaseApp{
     float yVel;
     float grav;
     Boolean evil;
+    ofImage fist;
 		
 };
