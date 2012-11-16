@@ -9,7 +9,7 @@ void testApp::setup(){
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
     
-    size = 200; //Ball size.
+    size = 80; //Ball size.
     color = 128; //Ball color.
     inc = 25; //Increment by which the color changes.
     inc2 = 25; //Increment by which the size changes.
@@ -61,7 +61,7 @@ void testApp::update(){
     if ((size >= 325) || size <= 25) {
         inc2 *= -1;
     }
-    
+
 }
 
 //--------------------------------------------------------------
@@ -118,7 +118,13 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+    if (key == '1') {
+        size -= 10;
+    }
     
+    if (key == '2') {
+        size += 10;
+    }
 }
 
 //--------------------------------------------------------------
