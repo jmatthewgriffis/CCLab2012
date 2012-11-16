@@ -7,3 +7,24 @@
 //
 
 #include "videoContainer.h"
+
+//--------------------------------------------------------------
+
+void videoContainer::setup() {
+    
+    video.loadMovie("kyle.mov");
+    video.play();
+    
+}
+
+void videoContainer::update() {
+    
+    video.update();
+    
+}
+
+void videoContainer::draw() {
+    
+    video.draw(0,0);
+    
+}

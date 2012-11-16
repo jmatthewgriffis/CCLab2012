@@ -9,6 +9,9 @@
 #ifndef _012_11_16_in_class_videoContainer_h
 #define _012_11_16_in_class_videoContainer_h
 
+#include "ofMain.h"
+
+
 class videoContainer {
 public:
     
@@ -16,6 +19,10 @@ public:
     void update();
     void draw();
     
+    ofVideoPlayer video;
+
 };
+
+
 
 #endif
