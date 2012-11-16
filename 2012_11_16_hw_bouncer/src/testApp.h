@@ -27,5 +27,6 @@ class testApp : public ofBaseApp{
     float xPos;
     float yVel;
     float grav;
+    Boolean evil;
 		
 };
