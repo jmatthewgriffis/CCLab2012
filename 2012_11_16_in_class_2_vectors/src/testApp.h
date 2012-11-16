@@ -25,6 +25,6 @@ class testApp : public ofBaseApp{
     
     //ofPoint // It can keep 3 variables. (ofPoint is an instance of ofVec3f.)
     
-    vector<ofVec3f> pts;
+    vector<ofVec3f> pts; // This is how to declare an array (this one of vectors).
 		
 };
