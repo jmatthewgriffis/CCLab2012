@@ -78,7 +78,7 @@ void testApp::draw(){
         //Left evil eye:
         ofTriangle(xPos-size/2, yPos-size/3, xPos-size/3.5, yPos-size/4.25, xPos-size/4.25, yPos-size/3);
         //Right evil eye:
-        
+        ofTriangle(xPos+size/2, yPos-size/3, xPos+size/3.5, yPos-size/4.25, xPos+size/4.25, yPos-size/3);
     }
     else {
         ofCircle(xPos - (size/3), yPos - (size/3), 12, size/10); //Left eye.
