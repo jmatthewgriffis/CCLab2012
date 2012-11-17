@@ -15,9 +15,6 @@ void videoContainer::setup(float x, float y) {
     video.loadMovie("kyle.mov");
     video.play();
     
-    xPos = x;
-    yPos = y;
-    
     videoW = video.getWidth() / 3;
     videoH = video.getHeight() / 3;
     
@@ -31,7 +28,6 @@ void videoContainer::update() {
 
 void videoContainer::draw(float x, float y, float w, float h) {
     
-    //video.draw(xPos,yPos, videoW, videoH);
-    video.draw(x,y, w, h);
+    video.draw(x, y, w, h);
     
 }
