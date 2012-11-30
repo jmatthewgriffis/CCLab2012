@@ -42,24 +42,24 @@ void testApp::draw(){
     ofSetHexColor(0x000000);
     
     if (paused == false) {
-	ofDrawBitmapString("[SPACE]: pause",20,320);
+	ofDrawBitmapString("[SPACE]: pause",ofGetWidth()/2,125);
     }
     else {
-        ofDrawBitmapString("[SPACE]: unpause",20,320);
+        ofDrawBitmapString("[SPACE]: unpause",ofGetWidth()/2,125);
     }
     
     if (nooo == false) {
-        ofDrawBitmapString("[n]: NOOO!",20,360);
+        ofDrawBitmapString("[n]: NOOO!",20,ofGetHeight()/2);
     }
     else {
-        ofDrawBitmapString("[n]: !NOOO",20,360);
+        ofDrawBitmapString("[n]: !NOOO",ofGetWidth()-120,ofGetHeight()/2);
     }
     
     if (telepathy == false) {
-        ofDrawBitmapString("[t]: activate telepathy",20,400);
+        ofDrawBitmapString("[t]: activate telepathy",ofGetWidth()/2,650);
     }
     else {
-        ofDrawBitmapString("[t] activate mouth movements",20,400);
+        ofDrawBitmapString("[t] activate mouth movements",ofGetWidth()/2,650);
     }
     
     ofSetColor(255); // Reset the color.
