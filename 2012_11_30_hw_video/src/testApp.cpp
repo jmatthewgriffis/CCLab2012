@@ -6,12 +6,18 @@ void testApp::setup(){
     appleMovie.loadMovie("gone_apple.mov");
     appleMovie.play();
     paused = false;
+    nooo = false;
+    telepathy = false;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
 
+    if (telepathy == false) {
+        // The video only advances through its frames with this
+        // (interestingly it plays the audio regardless):
     appleMovie.update();
+    }
 }
 
 //--------------------------------------------------------------
@@ -19,6 +25,18 @@ void testApp::draw(){
 
     // Center the video:
     appleMovie.draw((ofGetWidth()/2)-(appleMovie.getWidth()/2), (ofGetHeight()/2)-(appleMovie.getHeight()/2));
+    
+    // Debug (at least for now) - displays the frame count and progression:
+    ofDrawBitmapString("frame: " + ofToString(appleMovie.getCurrentFrame()) + "/"+ofToString(appleMovie.getTotalNumFrames()),20,380);
+    
+    // If Luke's horror should be looped (see keyPressed below),
+    // check if the current frame is less than the first frame
+    // of his horror, and if so, set it to that frame. Looping!
+    if (nooo == true) {
+    if (appleMovie.getCurrentFrame() < 1670) {
+        appleMovie.setFrame(1670);
+    }
+    }
 }
 
 //--------------------------------------------------------------
@@ -35,7 +53,16 @@ void testApp::keyPressed(int key){
             appleMovie.setPaused(paused);
             break;
             
-        default:
+            // Loop Luke's horror:
+            case 'n':
+            case 'N':
+            nooo=!nooo;
+            break;
+            
+            // Telepathic communication:
+            case 't':
+            case 'T':
+            telepathy=!telepathy;
             break;
     }
 }

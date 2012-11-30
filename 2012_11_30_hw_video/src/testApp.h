@@ -21,5 +21,7 @@ class testApp : public ofBaseApp{
     
     ofVideoPlayer appleMovie;
     bool paused;
+    bool nooo;
+    bool telepathy;
 		
 };
