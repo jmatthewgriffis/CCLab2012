@@ -16,7 +16,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
-    appleMovie.draw(20, 20);
+    appleMovie.draw((ofGetWidth()/2)-(appleMovie.getWidth()/2), (ofGetHeight()/2)-(appleMovie.getHeight()/2));
 }
 
 //--------------------------------------------------------------
