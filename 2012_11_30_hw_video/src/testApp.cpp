@@ -27,7 +27,7 @@ void testApp::draw(){
     appleMovie.draw((ofGetWidth()/2)-(appleMovie.getWidth()/2), (ofGetHeight()/2)-(appleMovie.getHeight()/2));
     
     // Debug (at least for now) - displays the frame count and progression:
-    ofDrawBitmapString("frame: " + ofToString(appleMovie.getCurrentFrame()) + "/"+ofToString(appleMovie.getTotalNumFrames()),20,380);
+    /*("frame: " + ofToString(appleMovie.getCurrentFrame()) + "/"+ofToString(appleMovie.getTotalNumFrames()),20,380);*/
     
     // If Luke's horror should be looped (see keyPressed below),
     // check if the current frame is less than the first frame
@@ -37,6 +37,32 @@ void testApp::draw(){
         appleMovie.setFrame(1670);
     }
     }
+    
+    // Let's provide instructions:
+    ofSetHexColor(0x000000);
+    
+    if (paused == false) {
+	ofDrawBitmapString("[SPACE]: pause",20,320);
+    }
+    else {
+        ofDrawBitmapString("[SPACE]: unpause",20,320);
+    }
+    
+    if (nooo == false) {
+        ofDrawBitmapString("[n]: NOOO!",20,360);
+    }
+    else {
+        ofDrawBitmapString("[n]: !NOOO",20,360);
+    }
+    
+    if (telepathy == false) {
+        ofDrawBitmapString("[t]: activate telepathy",20,400);
+    }
+    else {
+        ofDrawBitmapString("[t] activate mouth movements",20,400);
+    }
+    
+    ofSetColor(255); // Reset the color.
 }
 
 //--------------------------------------------------------------
