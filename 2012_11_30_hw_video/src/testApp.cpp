@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-
+    
     appleMovie.loadMovie("gone_apple.mov");
     appleMovie.play();
     paused = false;
@@ -12,17 +12,17 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    
     if (telepathy == false) {
         // The video only advances through its frames with this
         // (interestingly it plays the audio regardless):
-    appleMovie.update();
+        appleMovie.update();
     }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+    
     // Center the video:
     appleMovie.draw((ofGetWidth()/2)-(appleMovie.getWidth()/2), (ofGetHeight()/2)-(appleMovie.getHeight()/2));
     
@@ -33,16 +33,16 @@ void testApp::draw(){
     // check if the current frame is less than the first frame
     // of his horror, and if so, set it to that frame. Looping!
     if (nooo == true) {
-    if (appleMovie.getCurrentFrame() < 1670) {
-        appleMovie.setFrame(1670);
-    }
+        if (appleMovie.getCurrentFrame() < 1670) {
+            appleMovie.setFrame(1670);
+        }
     }
     
     // Let's provide instructions:
     ofSetHexColor(0x000000);
     
     if (paused == false) {
-	ofDrawBitmapString("[SPACE]: pause",ofGetWidth()/2,125);
+        ofDrawBitmapString("[SPACE]: pause",ofGetWidth()/2,125);
     }
     else {
         ofDrawBitmapString("[SPACE]: unpause",ofGetWidth()/2,125);
@@ -67,7 +67,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+    
     switch (key) {
         case ' ':
             // This is nice - I guess it's a shorthand for saying
@@ -80,14 +80,14 @@ void testApp::keyPressed(int key){
             break;
             
             // Loop Luke's horror:
-            case 'n':
-            case 'N':
+        case 'n':
+        case 'N':
             nooo=!nooo;
             break;
             
             // Telepathic communication:
-            case 't':
-            case 'T':
+        case 't':
+        case 'T':
             telepathy=!telepathy;
             break;
     }
@@ -95,40 +95,40 @@ void testApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::gotMessage(ofMessage msg){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){ 
-
+    
 }
