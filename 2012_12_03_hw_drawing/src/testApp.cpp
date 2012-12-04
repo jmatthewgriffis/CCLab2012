@@ -6,8 +6,12 @@ void testApp::setup(){
     rad = 30;
     limit = 50;
     counter = 0;
-    frequency = 240;
+    frequency = 240; // This interval to generate one bubble.
+    counter2 = 0;
+    frequency2 = (240*5); // Every five bubbles, the speed will increase.
     
+    // Jacked this image from the Internet:
+    // http://www.photo-dictionary.com/photofiles/list/7448/10009pin.jpg :
     pin.loadImage("pin.jpg");
     
     // Thanks to flowfx for this sound effect, "Big Bubble Blown Into Glass Through
@@ -24,6 +28,7 @@ void testApp::setup(){
 void testApp::update(){
     
     counter += 1;
+    counter2 += 1;
     
     // Every so often we will draw a circle in a random place:
     if (counter == frequency) {
@@ -40,6 +45,14 @@ void testApp::update(){
         
         // Reset the counter:
         counter = 0;
+    }
+    
+    // Here we control the pace at which the action speeds up:
+    if (counter2 == frequency2) {
+        if(frequency >= 35) {
+        frequency -= 5;
+        }
+        counter2 = 0;
     }
 
 }
@@ -64,6 +77,9 @@ void testApp::draw(){
     // image, which would throw off the positioning here. Use this instead:
     pin.draw(mouseX-(75/2), mouseY-(75/2), 75, 75);
     ofHideCursor();
+    
+    // Display the bubble count onscreen:
+    ofDrawBitmapString("Bubbles: " + ofToString(myCircles.size()), 10, 20);
     
     //cout<<myCircles.size()<<endl; // Print the number of elements in the vector.
     

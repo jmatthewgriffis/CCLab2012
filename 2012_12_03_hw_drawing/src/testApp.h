@@ -21,8 +21,10 @@ public:
     
     int rad; // Radius of circles.
     int limit; // Most circles onscreen at once.
-    float counter; // Use to time drawing events.
+    int counter; // Use to time drawing events.
     int frequency; // Use to control the counter.
+    int counter2; // Use to change the frequency.
+    int frequency2; // Use to control the counter2.
     
     
     ofVec3f circle; // This is a vector. This particular one can keep 3 variables.
