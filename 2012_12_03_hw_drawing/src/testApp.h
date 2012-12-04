@@ -19,12 +19,15 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    int rad; // Radius of circles.
+    int limit; // Most circles onscreen at once.
     
-    ofVec3f point; // This is a vector. This particular one can keep 3 variables.
+    
+    ofVec3f circle; // This is a vector. This particular one can keep 3 variables.
     // Vectors are the same as ArrayList. They have a variable size.
     
     //ofPoint // It can keep 3 variables. (ofPoint is an instance of ofVec3f.)
     
-    vector<ofVec3f> pts; // This is how to declare an array (this one of vectors).
+    vector<ofVec3f> myCircles; // This is how to declare an array (this one of vectors).
     
 };

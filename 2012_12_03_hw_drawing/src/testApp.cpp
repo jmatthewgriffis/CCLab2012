@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     
+    rad = 15;
+    limit = 5;
 }
 
 //--------------------------------------------------------------
@@ -15,7 +17,11 @@ void testApp::draw(){
     
     ofSetColor(0);
     ofNoFill();
-    ofBeginShape();
+    
+    for (int i=0; i<myCircles.size(); i++) {
+        ofCircle(myCircles[i].x, myCircles[i].y, rad);
+    }
+    /*ofBeginShape();
     
     for (int i=0; i<pts.size(); i++) {
         
@@ -27,11 +33,11 @@ void testApp::draw(){
     }
     
     ofEndShape();
+     */
     
-    if (pts.size()>100) {
-        pts.erase(pts.begin());
+    if (myCircles.size()>limit) {
+        myCircles.erase(myCircles.begin());
     }
-    
     //cout<<pts.size()<<endl; // Print the number of elements in the vector.
     
 }
@@ -54,7 +60,7 @@ void testApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
     
-    ofVec3f temp; // Instance of the ofVec3f object (a vector).
+    /*ofVec3f temp; // Instance of the ofVec3f object (a vector).
     temp.x = x; // x, y and z are the names of the variables within
     // the vector; however, they don't have to be the conventional
     // x, y and z.
@@ -62,11 +68,16 @@ void testApp::mouseDragged(int x, int y, int button){
     
     pts.push_back(temp); // Use this to shift elements in the array
     // over to make room for each new instance of the 'temp' object.
-    
+    */
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
+    ofVec3f temp;
+    temp.x = x;
+    temp.y = y;
+    
+    myCircles.push_back(temp);
     
 }
 
