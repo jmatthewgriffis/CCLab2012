@@ -5,11 +5,29 @@ void testApp::setup(){
     
     rad = 15;
     limit = 5;
+    counter = 0;
+    frequency = 60;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     
+    counter += 1;
+    
+    // Every so often we will draw a circle in a random place:
+    if (counter == 60) {
+        ofVec3f temp;
+        temp.x = ofRandom(ofGetWidth());
+        temp.y = ofRandom(ofGetHeight());
+        
+        // Use this to shift elements in the array
+        // over to make room for each new instance of the 'temp' object:
+        myCircles.push_back(temp);
+        
+        // Reset the counter:
+        counter = 0;
+    }
+
 }
 
 //--------------------------------------------------------------
@@ -21,24 +39,12 @@ void testApp::draw(){
     for (int i=0; i<myCircles.size(); i++) {
         ofCircle(myCircles[i].x, myCircles[i].y, rad);
     }
-    /*ofBeginShape();
-    
-    for (int i=0; i<pts.size(); i++) {
         
-        float inc;
-        ofVertex(pts[i].x, pts[i].y, pts[i].z+inc);
-        
-        inc-=10;
-        
-    }
-    
-    ofEndShape();
-     */
-    
     if (myCircles.size()>limit) {
         myCircles.erase(myCircles.begin());
     }
-    //cout<<pts.size()<<endl; // Print the number of elements in the vector.
+    
+    //cout<<myCircles.size()<<endl; // Print the number of elements in the vector.
     
 }
 
@@ -60,25 +66,18 @@ void testApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
     
-    /*ofVec3f temp; // Instance of the ofVec3f object (a vector).
-    temp.x = x; // x, y and z are the names of the variables within
-    // the vector; however, they don't have to be the conventional
-    // x, y and z.
-    temp.y = y;
-    
-    pts.push_back(temp); // Use this to shift elements in the array
-    // over to make room for each new instance of the 'temp' object.
-    */
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    ofVec3f temp;
+    /*ofVec3f temp;
     temp.x = x;
     temp.y = y;
     
+    // Use this to shift elements in the array
+    // over to make room for each new instance of the 'temp' object:
     myCircles.push_back(temp);
-    
+    */
 }
 
 //--------------------------------------------------------------
