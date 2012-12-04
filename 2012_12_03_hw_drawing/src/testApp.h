@@ -25,6 +25,8 @@ public:
     int frequency; // Use to control the counter.
     int counter2; // Use to change the frequency.
     int frequency2; // Use to control the counter2.
+    int seconds; // Use to display survival time.
+    int frac_seconds; // Use to control seconds.
     
     int gameState; // Use this to control the game state.
     

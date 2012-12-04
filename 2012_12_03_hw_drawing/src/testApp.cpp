@@ -3,13 +3,20 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     
+    ofSetCircleResolution(60);
+    ofEnableSmoothing();
+    ofSetFrameRate(60);
+    ofSetVerticalSync(true);
+    
     gameState = 1;
     rad = 30;
-    limit = 5;
+    limit = 50;
     counter = 0;
-    frequency = 240; // This interval to generate one bubble.
+    frequency = 60; // This interval to generate one bubble.
     counter2 = 0;
-    frequency2 = (240*5); // Every five bubbles, the speed will increase.
+    frequency2 = (60*5); // Every five bubbles, the speed will increase.
+    seconds = 0;
+    frac_seconds = 0;
     
     // Jacked this image from the Internet:
     // http://www.photo-dictionary.com/photofiles/list/7448/10009pin.jpg :
@@ -30,8 +37,16 @@ void testApp::update(){
     
     if (gameState == 1) {
     
-    counter += 1;
-    counter2 += 1;
+    counter ++;
+    counter2 ++;
+        frac_seconds ++;
+        
+        // If a second has passed, add a second to the display
+        // and reset the fractional counter:
+        if (frac_seconds >60) {
+            seconds++;
+            frac_seconds = 0;
+        }
     
     // Every so often we will draw a circle in a random place:
     if (counter == frequency) {
@@ -98,6 +113,9 @@ void testApp::draw(){
     
     // Display the bubble count onscreen:
     ofDrawBitmapString("Bubbles: " + ofToString(myCircles.size()), 10, 20);
+        
+        // Display the time survived onscreen:
+        ofDrawBitmapString("Survived: " + ofToString(seconds) + " seconds", ofGetWidth()-175, 20);
     
     //cout<<myCircles.size()<<endl; // Print the number of elements in the vector.
     }
