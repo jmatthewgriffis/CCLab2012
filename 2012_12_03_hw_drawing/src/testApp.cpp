@@ -10,7 +10,14 @@ void testApp::setup(){
     
     eraser.loadImage("eraser.png");
     
-    bubble.loadSound("tone.wav");
+    // Thanks to flowfx for this sound effect, "Big Bubble Blown Into Glass Through
+    // Drinking Straw Version 1," which I don't actually have permission to use.
+    // http://www.freesfx.co.uk/sfx/bubble :
+    bubble.loadSound("bubble.mp3");
+    
+    // This sound I recorded and edited myself with GarageBand! I permit
+    // myself to use it:
+    pop.loadSound("pop.mp3");
 }
 
 //--------------------------------------------------------------
@@ -82,6 +89,9 @@ void testApp::mouseMoved(int x, int y ){
     for (int i=0; i<myCircles.size(); i++) {
         if (ofDist(x, y, myCircles[i].x, myCircles[i].y) < rad) {
             myCircles.erase(myCircles.begin()+i);
+            
+            // Play a sound effect:
+            pop.play();
         }
     }
 }
