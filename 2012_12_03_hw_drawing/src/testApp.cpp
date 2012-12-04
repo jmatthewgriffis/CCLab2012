@@ -7,6 +7,8 @@ void testApp::setup(){
     limit = 50;
     counter = 0;
     frequency = 60;
+    
+    eraser.loadImage("eraser.png");
 }
 
 //--------------------------------------------------------------
@@ -43,6 +45,13 @@ void testApp::draw(){
     if (myCircles.size()>limit) {
         myCircles.erase(myCircles.begin());
     }
+    
+    ofSetColor(255); // Reset color.
+    
+    //eraser.draw(mouseX-(eraser.getWidth()/2), mouseY-(eraser.getHeight()/2), 50, 50); // Don't use this line because we've limited the display size of the
+    // image, which would throw off the positioning here. Use this instead:
+    eraser.draw(mouseX-25, mouseY-25, 50, 50);
+    ofHideCursor();
     
     //cout<<myCircles.size()<<endl; // Print the number of elements in the vector.
     

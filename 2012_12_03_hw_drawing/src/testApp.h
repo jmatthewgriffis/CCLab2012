@@ -30,4 +30,6 @@ public:
     
     vector<ofVec3f> myCircles; // This is how to declare an array (this one of vectors).
     
+    ofImage eraser;
+    
 };
