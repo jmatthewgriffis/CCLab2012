@@ -6,9 +6,11 @@ void testApp::setup(){
     rad = 15;
     limit = 50;
     counter = 0;
-    frequency = 60;
+    frequency = 240;
     
     eraser.loadImage("eraser.png");
+    
+    bubble.loadSound("tone.wav");
 }
 
 //--------------------------------------------------------------
@@ -17,7 +19,7 @@ void testApp::update(){
     counter += 1;
     
     // Every so often we will draw a circle in a random place:
-    if (counter == 60) {
+    if (counter == frequency) {
         ofVec3f temp;
         temp.x = ofRandom(ofGetWidth());
         temp.y = ofRandom(ofGetHeight());
@@ -25,6 +27,9 @@ void testApp::update(){
         // Use this to shift elements in the array
         // over to make room for each new instance of the 'temp' object:
         myCircles.push_back(temp);
+        
+        // Play a sound effect:
+        bubble.play();
         
         // Reset the counter:
         counter = 0;

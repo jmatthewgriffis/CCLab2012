@@ -32,4 +32,6 @@ public:
     
     ofImage eraser;
     
+    ofSoundPlayer bubble;
+    
 };
