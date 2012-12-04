@@ -26,6 +26,8 @@ public:
     int counter2; // Use to change the frequency.
     int frequency2; // Use to control the counter2.
     
+    int gameState; // Use this to control the game state.
+    
     
     ofVec3f circle; // This is a vector. This particular one can keep 3 variables.
     // Vectors are the same as ArrayList. They have a variable size.
