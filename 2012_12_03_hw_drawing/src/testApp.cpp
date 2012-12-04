@@ -10,7 +10,7 @@ void testApp::setup(){
     
     gameState = 1;
     rad = 30;
-    limit = 50;
+    limit = 15;
     counter = 0;
     frequency = 60; // This interval to generate one bubble.
     counter2 = 0;
@@ -48,8 +48,13 @@ void testApp::update(){
             frac_seconds = 0;
         }
     
-    // Every so often we will draw a circle in a random place:
-    if (counter == frequency) {
+    // Every so often we will draw a circle in a random place
+        // (originally I checked only if the counter was equal
+        // to the frequency; however, if the increment ever gets
+        // out of whole number ratio to the frequency such that
+        // counter+increment cannot equal frequency, then you get
+        // stuck; hence the 'greater than'):
+    if (counter >= frequency) {
         ofVec3f temp;
         temp.x = ofRandom(ofGetWidth());
         temp.y = ofRandom(ofGetHeight());
@@ -66,12 +71,17 @@ void testApp::update(){
     }
     
     // Here we control the pace at which the action speeds up:
-    if (counter2 == frequency2) {
-        if(frequency >= 35) {
+    if (counter2 >= frequency2) {
+        if(frequency >= 15) {
         frequency -= 5;
         }
         counter2 = 0;
     }
+    }
+    
+    if (myCircles.size()>=limit) {
+        //myCircles.erase(myCircles.begin());
+        gameState = 2;
     }
     
     // It seems that when we reload setup() (as we do when pressing 'r'
@@ -97,11 +107,6 @@ void testApp::draw(){
     
     for (int i=0; i<myCircles.size(); i++) {
         ofCircle(myCircles[i].x, myCircles[i].y, rad);
-    }
-        
-    if (myCircles.size()>limit) {
-        //myCircles.erase(myCircles.begin());
-        gameState = 2;
     }
     
     ofSetColor(255); // Reset color.
