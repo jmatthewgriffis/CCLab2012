@@ -3,12 +3,12 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     
-    rad = 15;
+    rad = 30;
     limit = 50;
     counter = 0;
     frequency = 240;
     
-    eraser.loadImage("eraser.png");
+    pin.loadImage("pin.jpg");
     
     // Thanks to flowfx for this sound effect, "Big Bubble Blown Into Glass Through
     // Drinking Straw Version 1," which I don't actually have permission to use.
@@ -62,7 +62,7 @@ void testApp::draw(){
     
     //eraser.draw(mouseX-(eraser.getWidth()/2), mouseY-(eraser.getHeight()/2), 50, 50); // Don't use this line because we've limited the display size of the
     // image, which would throw off the positioning here. Use this instead:
-    eraser.draw(mouseX-25, mouseY-25, 50, 50);
+    pin.draw(mouseX-(75/2), mouseY-(75/2), 75, 75);
     ofHideCursor();
     
     //cout<<myCircles.size()<<endl; // Print the number of elements in the vector.
